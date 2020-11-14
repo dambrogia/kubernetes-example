@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wp-deployment
+  labels:
+    deployment: wp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: wp
+  template:
+    metadata:
+      labels:
+        pod: wp
+    spec:
+      containers:
+        - name: wp-container
+          image: wordpress:5.5.1-php7.2-apache
+          ports:
+            - name: wp-ports
+              containerPort: 80
+              protocol: TCP

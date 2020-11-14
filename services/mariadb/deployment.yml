@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-deployment
+  labels:
+    deployment: mariadb
+spec:
+  selector:
+    matchLabels:
+      pod: mariadb
+  template:
+    metadata:
+      labels:
+        pod: mariadb
+    spec:
+      containers:
+        - name: mariadb-container
+          image: mariadb:10.5.6-focal
+          ports:
+            - name: mariadb-ports
+              containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: something_random123!
+            - name: MYSQL_DATABASE
+              value: wordpress
+            - name: MYSQL_USER
+              value: username
+            - name: MYSQL_PASSWORD
+              value: password
+          volumeMounts:
+            - name: mariadb-volume
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mariadb-volume
+          persistentVolumeClaim:
+            claimName: mariadb-volume-claim

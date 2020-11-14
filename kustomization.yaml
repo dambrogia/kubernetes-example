@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- services/mariadb/deployment.yml
+- services/mariadb/service.yml
+- services/mariadb/volume.yml
+- services/wp/deployment.yml
+- services/wp/service.yml
