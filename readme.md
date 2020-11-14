@@ -53,3 +53,16 @@ This is expected to be run locally.
 6. Monitor workload updates:
 
 ![Monitor workload updates](https://raw.githubusercontent.com/dambrogia/kubernetes-example/master/assets/monitor-workload.png)
+
+
+### Command Line Deployment Instructions:
+
+To do the same thing as we did in the UI above, you can do this in one command:
+
+    kubectl set image deployment/wp-deployment wp-container=wordpress:5.5.1-php7.2-apache
+
+- `wp-deployment` derives from `.metadata.name` in `services/wp/deployment.yaml`
+- `wp-container` derives from `.spec.template.spec.containers[0].name` in `services/wp/deployment.yaml`
+- `wordpress:5.5.1-php7.2-apache` sets the value at `.spec.template.spec.containers[0].image` in `services/wp/deployment.yaml`
+
+You can then view the workload in the dashboard again to see your wp-deployment being updated.
