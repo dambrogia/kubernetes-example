@@ -28,3 +28,28 @@ This is expected to be run locally.
         - Prefix: `wp_`
 7. Open the kubernetes dashboard -- `minikube dashboard`
 8. Follow the images below to deploy a new version of your web nodes (WordPress).
+
+### UI Deployment Instructions
+1. Go to deployments:
+
+![Go to deployments](https://raw.githubusercontent.com/dambrogia/kubernetes-example/master/assets/go-to-deployments.png)
+
+2. Go to `wp-deployment`:
+
+![Go to WP deployment](https://raw.githubusercontent.com/dambrogia/kubernetes-example/master/assets/go-to-wp-deployment.png)
+
+3. Edit the deployment:
+
+![Edit the deployment](https://raw.githubusercontent.com/dambrogia/kubernetes-example/master/assets/edit-deployment.png)
+
+4. Update the WP container image: (we are using `wordpress:5.5-php7.2-apache` as an example here)
+
+![Update the WP container image](https://raw.githubusercontent.com/dambrogia/kubernetes-example/master/assets/update-wp-image.png)
+
+5. Go back to the dashboard homepage:
+
+![Go back to the dashboard homepage](https://raw.githubusercontent.com/dambrogia/kubernetes-example/master/assets/visit-dashboard-home-page.png)
+
+6. Monitor workload updates:
+
+![Monitor workload updates](https://raw.githubusercontent.com/dambrogia/kubernetes-example/master/assets/monitor-workload.png)
